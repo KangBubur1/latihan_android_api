@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Submission_awal</string>
+    <string name="imagebanner">ImageBanner</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="finished">Finished</string>
+    <string name="explore_activities">Explore Activities</string>
+    <string name="judul_event">Judul Event</string>
+    <string name="Clock">12:00 PM, 25 Sept 2024</string>
+    <string name="register_now">Register Now</string>
+    <string name="title_home">Home\n</string>
+    <string name="title_dashboard">Search</string>
+    <string name="past_activities">Events You\'ve Missed</string>
+    <string name="searchbar_hint">search bar hint\n</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="quota">Quota</string>
+    <string name="description">description</string>
+    <string name="Upcoming">Upcoming</string>
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="active_events">Active Events</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="past_events">Past Events</string>
+    <string name="search">Search...</string>
+</resources>
