@@ -9,10 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.submission_awal.R
+import com.example.submission_awal.data.local.entity.EventEntity
 import com.example.submission_awal.databinding.FragmentDetailEventBinding
+import com.example.submission_awal.utils.ViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -25,6 +29,11 @@ class DetailEventFragment : Fragment() {
 
     private var _binding: FragmentDetailEventBinding? = null
     private val binding get() = _binding!!
+
+
+    private val detailEventViewModel : DetailEventViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
 
 
@@ -84,6 +93,24 @@ class DetailEventFragment : Fragment() {
                         }
                     } else {
                         Toast.makeText(context, "Registration URL is not available", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                if (selectedEvent.isFavorite) {
+                    binding.favButton.setImageResource(R.drawable.baseline_thumb_up_24)
+                } else {
+                    binding.favButton.setImageResource(R.drawable.outline_thumb_up_24)
+                }
+
+                binding.favButton.setOnClickListener {
+                    if (selectedEvent.isFavorite) {
+                        selectedEvent.isFavorite = false
+                        detailEventViewModel.deleteEvent(selectedEvent)
+                        binding.favButton.setImageResource(R.drawable.outline_thumb_up_24)
+                    } else {
+                        selectedEvent.isFavorite = true
+                        detailEventViewModel.saveEvent(selectedEvent)
+                        binding.favButton.setImageResource(R.drawable.baseline_thumb_up_24)
                     }
                 }
             }

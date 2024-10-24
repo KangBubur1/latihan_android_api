@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -43,6 +44,13 @@ android {
 
 dependencies {
 
+    // WorkManager
+    implementation(libs.androidx.work.runtime)
+    implementation(libs.android.async.http)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
 
     // Formatter
     implementation (libs.jsoup)
@@ -59,6 +67,11 @@ dependencies {
     implementation(libs.androidx.navigation.ui) // Navigation UI components
     implementation(libs.androidx.navigation.ui.ktx) // KTX extensions for navigation UI
 
+    // Room database (Local)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.room.compiler)
+
     implementation(libs.androidx.core.ktx) // Core KTX features
     implementation(libs.androidx.appcompat) // AppCompat support
     implementation(libs.material) // Material design components
@@ -68,6 +81,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.fragment.ktx) // ConstraintLayout for UI design
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 
     testImplementation(libs.junit) // Unit testing
     androidTestImplementation(libs.androidx.junit) // Android unit tests

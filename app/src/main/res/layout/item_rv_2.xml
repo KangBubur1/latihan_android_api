@@ -35,6 +35,7 @@
             android:paddingHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:textColor="?attr/colorOnSurface"
             android:fontFamily="@font/fontpoppins"
             android:text="@string/judul_event"
             android:textSize="18sp"

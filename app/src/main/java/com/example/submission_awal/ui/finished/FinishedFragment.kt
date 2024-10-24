@@ -11,12 +11,15 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.submission_awal.adapter.PastEventReviewAdapter
 import com.example.submission_awal.databinding.FragmentFinishedBinding
 import com.example.submission_awal.ui.home.HomeViewModel
+import com.example.submission_awal.utils.ViewModelFactory
 
 class FinishedFragment : Fragment() {
 
     private var _binding: FragmentFinishedBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels{
+        ViewModelFactory.getInstance(requireContext())
+    }
     private val pastEventAdapter by lazy {
         PastEventReviewAdapter(mutableListOf()) { selectedEvent ->
             val action = FinishedFragmentDirections.actionFinishedFragmentToDetailEventFragment(selectedEvent)

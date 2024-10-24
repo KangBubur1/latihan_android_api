@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Submission_awal" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.Submission_awal" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Warna untuk tema terang -->
+        <item name="colorPrimary">#6262e3</item> <!-- Warna ungu terang -->
+        <item name="colorSurface">#FFFFFF</item> <!-- Warna latar terang -->
+        <item name="colorOnSurface">#000000</item> <!-- Warna teks untuk latar terang -->
     </style>
 
-    <style name="Theme.Submission_awal" parent="Base.Theme.Submission_awal" />
+
 </resources>

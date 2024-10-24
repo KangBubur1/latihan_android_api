@@ -16,12 +16,15 @@ import com.example.submission_awal.adapter.ActiveEventReviewAdapter
 import com.example.submission_awal.databinding.FragmentUpcomingBinding
 import com.example.submission_awal.ui.home.HomeViewModel
 import com.example.submission_awal.utils.MarginItemDecoration
+import com.example.submission_awal.utils.ViewModelFactory
 
 class UpcomingFragment : Fragment() {
 
     private var _binding: FragmentUpcomingBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels{
+        ViewModelFactory.getInstance(requireContext())
+    }
     private val activeEventAdapter by lazy {
         ActiveEventReviewAdapter(
             mutableListOf(),
@@ -42,7 +45,8 @@ class UpcomingFragment : Fragment() {
                 } else {
                     Toast.makeText(context, "Invalid URL", Toast.LENGTH_SHORT).show()
                 }
-            }
+
+            },
         )
     }
 

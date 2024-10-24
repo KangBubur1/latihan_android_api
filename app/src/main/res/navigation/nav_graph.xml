@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.submission_awal.ui.home.HomeFragment"
-        android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
@@ -16,11 +15,13 @@
         <action
             android:id="@+id/action_homeFragment_to_detailEventFragment"
             app:destination="@id/detailEventFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@+id/settingFragment"/>
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.submission_awal.ui.search.SearchFragment"
-        android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_detailEventFragment"
@@ -29,28 +30,42 @@
     <fragment
         android:id="@+id/detailEventFragment"
         android:name="com.example.submission_awal.ui.detail.DetailEventFragment"
-        android:label="fragment_detail_event"
         tools:layout="@layout/fragment_detail_event" >
 
         <argument
             android:name="event"
-            app:argType="com.example.submission_awal.data.response.ListEventsItem" />
+            app:argType="com.example.submission_awal.data.local.entity.EventEntity" />
     </fragment>
     <fragment
         android:id="@+id/upcomingFragment"
-        android:name="com.example.submission_awal.ui.upcoming.UpcomingFragment"
-        android:label="UpcomingFragment" >
+        android:name="com.example.submission_awal.ui.upcoming.UpcomingFragment">
         <action
             android:id="@+id/action_upcomingFragment_to_detailEventFragment"
             app:destination="@id/detailEventFragment" />
     </fragment>
     <fragment
         android:id="@+id/finishedFragment"
-        android:name="com.example.submission_awal.ui.finished.FinishedFragment"
-        android:label="FinishedFragment" >
+        android:name="com.example.submission_awal.ui.finished.FinishedFragment">
         <action
             android:id="@+id/action_finishedFragment_to_detailEventFragment"
             app:destination="@id/detailEventFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.submission_awal.ui.setting.SettingFragment"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.submission_awal.ui.favorite.FavoriteFragment"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailEventFragment"
+            app:destination="@id/detailEventFragment" />
+    </fragment>
+    <fragment android:id="@+id/placeholder" />
 
 </navigation>

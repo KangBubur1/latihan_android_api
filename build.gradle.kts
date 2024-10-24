@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
+    id("com.google.devtools.ksp") version "2.0.20-1.0.25" apply false
 }
 
 buildscript {
@@ -9,8 +10,7 @@ buildscript {
         google()
     }
     dependencies {
-        val nav_version = "2.8.1"
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+        classpath(libs.androidx.navigation.safe.args.gradle.plugin)
     }
 
 }

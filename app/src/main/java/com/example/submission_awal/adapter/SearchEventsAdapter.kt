@@ -1,10 +1,12 @@
 package com.example.submission_awal.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.submission_awal.data.local.entity.EventEntity
 import com.example.submission_awal.data.response.ListEventsItem
 import com.example.submission_awal.databinding.ItemRv1Binding
 import com.example.submission_awal.utils.EventDiffCallback
@@ -13,13 +15,13 @@ import java.util.Date
 import java.util.Locale
 
 class SearchEventsAdapter(
-    private val searchEvents: MutableList<ListEventsItem?>,
-    private val onItemClick: (ListEventsItem) -> Unit,
+    private val searchEvents: MutableList<EventEntity?>,
+    private val onItemClick: (EventEntity) -> Unit,
     private val onRegister: (String) -> Unit
 ) : RecyclerView.Adapter<SearchEventsAdapter.SearchEventsViewHolder>() {
 
     class SearchEventsViewHolder(private val binding: ItemRv1Binding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(eventsItem: ListEventsItem, onItemClick: (ListEventsItem) -> Unit, onRegister: (String) -> Unit) {
+        fun bind(eventsItem: EventEntity, onItemClick: (EventEntity) -> Unit, onRegister: (String) -> Unit) {
             Glide.with(binding.root.context)
                 .load(eventsItem.mediaCover)
                 .into(binding.ivBanner)
@@ -41,7 +43,7 @@ class SearchEventsAdapter(
             }
         }
 
-        private fun updateRegisterButtonState(eventsItem: ListEventsItem) {
+        private fun updateRegisterButtonState(eventsItem: EventEntity) {
             val eventDate = parseDate(eventsItem.beginTime)
             val currDate = Date()
             binding.btnRegister.apply {
@@ -78,7 +80,8 @@ class SearchEventsAdapter(
         searchEvents[position]?.let { holder.bind(it, onItemClick, onRegister) }
     }
 
-    fun updateList(newList: List<ListEventsItem?>) {
+    fun updateList(newList: List<EventEntity?>) {
+        Log.d("SearchEventsAdapter", "Updating list with ${newList.size} items")
         val result = DiffUtil.calculateDiff(EventDiffCallback(searchEvents, newList))
         searchEvents.clear()
         searchEvents.addAll(newList)

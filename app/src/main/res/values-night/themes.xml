@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Submission_awal" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.Submission_awal" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Warna untuk tema gelap -->
+        <item name="colorPrimary">#9C27B0</item> <!-- Warna ungu gelap -->
+        <item name="colorSurface">#121212</item> <!-- Warna latar gelap -->
+        <item name="colorOnSurface">#FFFFFF</item> <!-- Warna teks untuk latar gelap -->
     </style>
 </resources>

@@ -4,7 +4,6 @@ import com.example.submission_awal.data.response.DicodingEvent
 import retrofit2.http.*
 
 interface ApiService {
-    val query: String
 
     @GET("events?active=1")
     suspend fun getActiveEvents(): DicodingEvent
@@ -12,7 +11,7 @@ interface ApiService {
     @GET("events?active=0")
     suspend fun getPastEvents(): DicodingEvent
 
-    @GET("events?active=-1")
-    suspend fun searchEvents(@Query("q") query: String) : DicodingEvent
+    @GET("events?active=-1&limit=1")
+    suspend fun getUpcomingEvents(): DicodingEvent
 
 }

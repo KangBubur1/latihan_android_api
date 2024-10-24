@@ -20,5 +20,10 @@
         android:icon="@drawable/finish"
         android:title="@string/finished" />
 
+    <item
+        android:id="@+id/settingFragment"
+        android:icon="@drawable/setting"
+        android:title="Setting" />
+
 
 </menu>

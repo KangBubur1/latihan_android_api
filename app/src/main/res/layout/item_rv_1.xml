@@ -28,6 +28,7 @@
         android:padding="16dp">
 
 
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
@@ -35,7 +36,7 @@
             android:layout_marginTop="104dp"
             android:fontFamily="@font/fontpoppins"
             android:text="@string/judul_event"
-            android:textColor="@android:color/black"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/fontpoppins"
+            android:textColor="?attr/colorOnSurface"
             android:text="@string/register_now"
             android:textAllCaps="false"
             android:textSize="14sp"
